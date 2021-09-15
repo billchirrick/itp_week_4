@@ -1,5 +1,11 @@
 # ITP Week 3 Day 3 Solution
 
+## GET THE DATA
+## CLEAN THE DATA
+## LOOP THROUGH THE DATA
+## OUTPUT THE DATA
+
+
 import requests
 import json
 import openpyxl
@@ -25,6 +31,12 @@ result = clean_data["results"]
 
 # print(result[0])
 # print(result[0]['location']['name'])
+
+# first_item = result[0]
+# print(type(first_item))  # disctionary
+# print(first_item)
+# print(first_item["name"])
+
 
 wb = openpyxl.load_workbook("./input.xlsx")
 sheet = wb['Sheet1']
@@ -59,6 +71,14 @@ for char in result:
     sheet['D' + str(counter)] = char['location']['name']
     counter+=1
 # grab the name, species, gender, location name
+
+# row = 1
+# for character in result:
+#     sheet['A' + str(row)] = character['name']
+#     sheet['B' + str(row)] = character['species']
+#     sheet['C' + str(row)] = character['gender']
+#     sheet['D' + str(row)] = character['location']['name']
+#     row += 1
 
 
 wb.save('./output.xlsx')
